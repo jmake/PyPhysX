@@ -1,0 +1,16 @@
+rm _SWIG_fileName.so 
+
+/usr/bin/c++ -fPIC  -Wl,--no-as-needed -ldl -pthread  -O3 -DNDEBUG  -shared  -o _SWIG_fileName.so CMakeFiles/SWIG_fileName.dir/CMakeFiles/SWIG_fileName.dir/swigConfigurationFilePYTHON_wrap.cxx.o  \
+-Wl,-rpath,/home/jovyan/work/PhysX/Swig/BUILD2:/opt/conda/lib:/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release \
+libLibraryName.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysX_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXCharacterKinematic_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXCommon_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXCooking_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXExtensions_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXFoundation_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXPvdSDK_64.so \
+/home/jovyan/work/physx/install/linux/PhysXSO/bin/linux.clang/release/libPhysXVehicle_64.so \
+/opt/conda/lib/libpython3.9.so 
+
+ldd _SWIG_fileName.so  

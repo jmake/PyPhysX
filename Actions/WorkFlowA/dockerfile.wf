@@ -1,0 +1,10 @@
+## https://hub.docker.com/repository/docker/jmake/mybinder
+##FROM jmake/mybinder:last AS PHYSICS
+
+## https://hub.docker.com/repository/docker/jmake/pyphysx
+FROM jmake/pyphysx:a AS PHYSICS
+
+USER root 
+
+ENV NB_USER="jovyan" 
+RUN chown -R ${NB_USER} /home/jovyan/work
