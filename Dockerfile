@@ -6,17 +6,22 @@
 #ENV NB_USER="jovyan" 
 #RUN chown -R ${NB_USER} /home/jovyan/work
 
+FROM jmake/repository:bccc06d9833b59f03b99d8dde4e46ca473a4fbc7
 
-FROM jupyter/base-notebook:latest
+ENV IPYNB_FILE="basic_test.ipynb"
+
+ENV NB_USER="jovyan" 
 
 USER root 
+
 WORKDIR /home/jovyan/work 
 
-RUN conda install -c conda-forge cxx-compiler vim 
-RUN conda install -c anaconda numpy
-RUN conda install -c anaconda swig
-RUN conda install -c anaconda make
-RUN conda install -c anaconda cmake
+COPY ${IPYNB_FILE} /home/jovyan/work 
+
+RUN chown -R ${NB_USER} /home/jovyan/work
+
+USER ${NB_USER}
+
 
 
 ## jupyter password
