@@ -1,0 +1,39 @@
+name: WorkFlowA 
+
+on: [push, workflow_dispatch]
+
+jobs:
+
+  build:
+  
+    runs-on: ubuntu-20.04
+      
+    steps:
+    
+    - name: Dowloading Repository ... 
+      uses: actions/checkout@v2
+      
+    
+    - name: Executing WorkFlowA ...  
+      if: success()
+              
+      run: | 
+        echo "[WORFLOWS] I am here:'${PWD}' "
+        echo "[WORFLOWS] ls -la"
+        ls -la ${PWD}
+        echo "[WORFLOWS] "
+       
+        DVOLUME=${{ github.workspace }} 
+        echo "[WORFLOWS] Repository is:'${DVOLUME}' "
+        bash ./Actions/WorkFlowA/workflow.sh ${DVOLUME}
+        echo "[WORFLOWS] DONE!!"
+         
+    - name: Saving Artifacts ...
+      uses: actions/upload-artifact@v2
+      with:
+        name: FromContainer
+        if-no-files-found: ignore #  'error'  'warn'  'ignore' 
+        path: ./setup.ipynb
+        retention-days: 1
+        
+        
