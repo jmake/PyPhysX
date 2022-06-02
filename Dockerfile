@@ -9,15 +9,15 @@
 
 FROM jupyter/base-notebook:latest
 
+USER root 
+WORKDIR /home/jovyan/work 
+
 RUN conda install -c conda-forge cxx-compiler vim 
-
 RUN conda install -c anaconda numpy
-
 RUN conda install -c anaconda swig
-
 RUN conda install -c anaconda make
-
 RUN conda install -c anaconda cmake
+
 
 ## jupyter password
 ## http://localhost:10000/?token=TOKEN_CODE
